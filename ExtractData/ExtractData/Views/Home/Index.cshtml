@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    <br />
+</div>
+<div class="row">
+    
+    <div class="col-lg-3"><form id="1" method="post" asp-controller="Home" asp-action="Extract"> <input type="submit" value="Extract Data" /></form></div>
+    <div class="col-lg-3"><form id="2" method="post" asp-controller="Home" asp-action="RemoveRecords"><input type="submit" value="Delete Data" /></form></div>
+    @TempData["Message"]
+</div>
+
