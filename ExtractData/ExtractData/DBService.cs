@@ -14,8 +14,17 @@ namespace ExtractData
         private string ConnectionString = "Server=127.0.0.1;Database=devcan;User Id=sa;Password=saadmin;";
         string dirPath = @"c:\ExtractedImages";
         List<string> strList;
+        public DBService()
+        {
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+        }
+
         public void TransferData()
         {
+            
             DeleteRecords();
             strList = new List<string>();
             DataTable dt = new DataTable();
@@ -34,10 +43,7 @@ namespace ExtractData
                     con.Close();
                 }
                 
-                if (!Directory.Exists(dirPath))
-                {
-                    Directory.CreateDirectory(dirPath);
-                }
+                
                 foreach (DataRow dr in dt.Rows)
                 {
                     byte[] source = (byte[])dr["image"];
